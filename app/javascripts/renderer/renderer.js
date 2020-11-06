@@ -207,7 +207,7 @@ function registerIpcMessageListener(webBridge) {
         'application-group-view'
       );
       const controllerScope = angular.element(controllerElement).scope();
-      controllerScope.onUpdateAvailable();
+      controllerScope.$root.$broadcast('new-update-available');
     } else if (message === IpcMessages.DownloadBackup) {
       webBridge.downloadBackup();
     } else if (message === IpcMessages.FinishedSavingBackup) {
